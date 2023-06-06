@@ -10,8 +10,7 @@ const AnimeCard = (props) => {
       </div>
       <div className="back face">
         <h1>{props.title}</h1>
-        <p>{props.title_japanese}</p>
-        <p>{`Score: ${props.score}`}</p>
+        <div className="score-bar">{`Score: ${props.score}`}</div>
       </div>
      </div>
     </div>
