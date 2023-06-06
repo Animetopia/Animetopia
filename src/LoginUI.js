@@ -13,8 +13,6 @@ import {useNavigate} from "react-router-dom";
 import { Axios } from 'axios';
 
 
-
-
 const bull = (
   <Box
     component="span"
@@ -52,11 +50,25 @@ export function BasicTextFields(props) {
 export function BasicButtons(){
   const navigate = useNavigate();
   function directLogin(){ 
-    navigate("/");  
+    // handle submit for login action - send login info to backend to check against the password in DB
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(loginForm)
+    };
+    fetch('/api/user/login', requestOptions)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setForm({username: "", password: ""});
+        navigate("/home"); 
+      })
+      .catch(error => console.error(error));
   }
+    // After successful login user should be redirected to their home page
+}
   function directSignUp(){
     navigate("/signup");
-  }
   // const navigate = useNavigate();
   // const handleLoginClick = () => {
   //   // Redirect to a new page
@@ -74,7 +86,7 @@ export function BasicButtons(){
 }
 export function BasicButtonsSignUp() {
   const navigate = useNavigate();
-  function directLogin(){ 
+  function directToLogin(){ 
     navigate("/");  
   }
 
@@ -93,21 +105,33 @@ export function BasicButtonsSignUp() {
   function handleContinueClick() {
     // Call your register user function here
     registerUser(email, username, password);
-    // Navigate to the dashboard or home page after registration
-    navigate("/");
+    // Users should be redirected to the home page after registration
+    navigate("/home");
   }
   //eventually implement continue button redirect here:
   return (
     <div className = "buttonContainer" style={{ marginTop: '20px' }}>
     <Stack spacing={5} direction="row">
       <Button variant="contained" onClick = {handleContinueClick}>Continue</Button>
-      <Button variant="contained" onClick = {directLogin}>Log In</Button>
+      <Button variant="contained" onClick = {directToLogin}>Log In</Button>
     </Stack>
     </div>
   );
 }
 //how do i prop drill the value of the email from the signupcard component into the basicbuttons signup component
 export function BasicCard() {
+  const [loginForm, setForm] = useState({
+    username: "",
+    password: ""
+  }); 
+
+  // Function to update the form state 
+  function updateForm(value){
+    return setForm((prev) => {
+        return {...prev, ...value};
+    });
+  }
+
   return (
     <Card sx={{ minWidth: 600, minHeight: 350, backgroundColor: 'rgba(128, 128, 128, 0.8)'}}>
       <CardContent sx={{ marginTop: '20px' }}>
@@ -122,9 +146,9 @@ export function BasicCard() {
           <br />
           {'"a benevolent smile"'}
         </Typography> */}
-        <BasicTextFields label="Enter your username">
+        <BasicTextFields label="Enter your username" onChange={(e) => updateForm({username: e.target.value})}>
         </BasicTextFields>
-        <BasicTextFields label="Enter your password">
+        <BasicTextFields label="Enter your password" onChange={(e) => updateForm({password: e.target.value})}>
         </BasicTextFields>
         <BasicButtons sx={{ mt: 4 }} />
       </CardContent>
@@ -134,9 +158,7 @@ export function BasicCard() {
     </Card>
   );
 }
-    // <BasicTextFields label="Email:" value={email} onChange={handleEmailChange} />
-    // <BasicTextFields label="Username:" value={username} onChange={handleUsernameChange} />
-    // <BasicTextFields label="Password:" value={password} onChange={handlePasswordChange} />
+
 export function SignUpCard(){
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -156,7 +178,7 @@ export function SignUpCard(){
     setPassword(event.target.value);
   }
   return (
-    <Card sx={{ minWidth: 600, minHeight: 350, backgroundColor: '#673ab7'}}>
+    <Card sx={{ minWidth: 600, minHeight: 350, backgroundColor: 'rgba(128, 128, 128, 0.8)'}}>
       <CardContent sx={{ marginTop: '20px' }}>
         <Typography variant="h5" component="div" sx={{fontSize: '32px', fontWeight: '700', color: 'white', fontFamily: 'Arial'}}>
           Animetopia

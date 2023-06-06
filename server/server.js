@@ -6,6 +6,7 @@ const express = require('express');
 const PORT = 3000;
 
 const animeRouter = require("./routes/animeRouter.js")
+const userRouter = require('./routes/userRouter')
 
 // using express
 const app = express();
