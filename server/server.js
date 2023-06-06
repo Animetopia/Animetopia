@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.static('views'));
 app.use(express.static('assets'));
 
-app.use("/anime", animeRouter);
+app.use('/anime', animeRouter);
 app.use('/user', userRouter);
 
 
