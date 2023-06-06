@@ -13,6 +13,7 @@ module.exports = (env) => {
         },
 
         mode: env.NODE_ENV,
+        devtool: false,
         
         devServer: {
             host: 'localhost',

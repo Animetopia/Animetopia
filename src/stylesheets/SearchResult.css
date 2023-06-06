@@ -1,0 +1,21 @@
+.back-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    background-color: #fff;
+    font-size: 0.6rem;
+    border-radius: 5rem;
+    border: none;
+    transition: all 0.2s ease-in-out;
+    -webkit-box-shadow: 0 0 0 0.8rem rgba(39, 39, 39, 1);
+    -moz-box-shadow: 0 0 0 0.8rem rgba(39, 39, 39, 1);
+    box-shadow: 0 0 0 0.8rem rgba(39, 39, 39, 1);
+  }
+  
+  .back-btn:hover {
+    transform: scale(1.2);
+    -webkit-box-shadow: 0 0 0 0.7rem rgba(39, 39, 39, 1);
+    -moz-box-shadow: 0 0 0 0.7rem rgba(39, 39, 39, 1);
+    box-shadow: 0 0 0 0.7rem rgba(39, 39, 39, 1);
+  }

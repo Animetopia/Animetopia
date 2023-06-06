@@ -22,9 +22,8 @@ CREATE TABLE public.users (
 );
 
 CREATE TABLE public.favorites ( 
-    "id" serial NOT NULL,
+    "id" serial NOT NULL,    
     "anime_id" integer NOT NULL,
-    "anime_name" varchar,
     CONSTRAINT "bets_pk" PRIMARY KEY("id")
 );
 

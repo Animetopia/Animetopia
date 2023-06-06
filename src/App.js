@@ -1,19 +1,23 @@
-import React, { useState } from 'react'
-import './stylesheets/App.css'
-import LoginPage from './components/LoginPage'
-import SignupPage from './components/SignupPage'
-import HomePage from './components/HomePage'
+import React, { useState } from 'react';
+import './stylesheets/App.css';
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
+import HomePage from './components/HomePage';
+import SearchResult from './components/SearchResult';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
-  // const [count, setCount] = useState(0)
+
+  const [userId, setUserId] = useState("");
+
     return (
       <Router>
         <div className = "App">
           <Routes>
-            <Route exact path="/" element={<LoginPage/>} />
-            <Route path="/signup" element={<SignupPage/>} />
-            <Route path="/home" element={<HomePage />}/>
+            {/* <Route exact path="/" element={<LoginPage setUserId={setUserId}/>} /> */}
+            <Route path="/signup" element={<SignupPage setUserId={setUserId}/>} />
+            <Route path="/" element={<HomePage />}/>
+            <Route path="/search-results" element={<SearchResult />}/>
           </Routes>
         </div>
       </Router>
