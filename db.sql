@@ -25,13 +25,14 @@ CREATE TABLE public.users (
 
 CREATE TABLE public.favorites ( 
     "id" serial NOT NULL,    
-    "mal_id" integer UNIQUE NOT NULL,
+    "mal_id" integer NOT NULL,
     CONSTRAINT "bets_pk" PRIMARY KEY("id")
 );
 
 CREATE TABLE public.favorite_details (
     "id" serial NOT NULL,
     "user_id" integer NOT NULL,
+    "mal_id" integer NOT NULL,
     "favorite_id" integer NOT NULL
 );
 
