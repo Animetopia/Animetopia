@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   // const [count, setCount] = useState(0)
+  const [userId, setUserId] = useState("");
     return (
       <Router>
         <div className = "App">

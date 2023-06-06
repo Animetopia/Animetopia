@@ -11,7 +11,7 @@ const HomePage = () => {
             "https://api.jikan.moe/v4/top/anime?type=tv&filter=airing&page=1&limit=21"
         );
         const data = await response.json();
-        // console.log("data: ", data);
+        console.log("data: ", data);
         setSeasonalAnime(data.data);
     } catch (err) {
         console.log("err in fetching anime: ", err)
@@ -33,8 +33,8 @@ const HomePage = () => {
         return (<AnimeCard 
           image={anime.images.jpg.image_url}
           title={anime.title}
-          titleJP={anime.title_japanese}
           score={anime.score}
+          id={anime.mal_id}
           />)
       }))
       : <p>Loading...</p>

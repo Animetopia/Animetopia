@@ -9,6 +9,8 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+DROP TABLE public.favorite_details;
+DROP TABLE public.favorites;
 DROP TABLE public.users;
 
 CREATE TABLE public.users ( 
@@ -22,9 +24,8 @@ CREATE TABLE public.users (
 );
 
 CREATE TABLE public.favorites ( 
-    "id" serial NOT NULL,
-    "anime_id" integer NOT NULL,
-    "anime_name" varchar,
+    "id" serial NOT NULL,    
+    "mal_id" integer UNIQUE NOT NULL,
     CONSTRAINT "bets_pk" PRIMARY KEY("id")
 );
 
