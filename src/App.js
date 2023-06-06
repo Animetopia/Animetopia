@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import './App.css'
+import React, { useState } from 'react'
+import './stylesheets/App.css'
 import LoginPage from './LoginPage'
 import SignUp from './SignUp'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';

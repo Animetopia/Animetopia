@@ -5,6 +5,8 @@ const express = require('express');
 
 const PORT = 3000;
 
+const animeRouter = require("./routes/animeRouter.js")
+
 // using express
 const app = express();
 app.use(express.json());
@@ -13,6 +15,9 @@ app.use(express.json());
 // serving static files
 app.use(express.static('views'));
 app.use(express.static('assets'));
+
+app.use("/anime", animeRouter);
+app.use('/user', userRouter);
 
 
 // these are our controllers that we will change goes in controller folder

@@ -10,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {useNavigate} from "react-router-dom";
+import { Axios } from 'axios';
 
 
 
@@ -83,7 +84,7 @@ export function BasicButtonsSignUp() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, email, password })
     };
-    fetch('/api/register', requestOptions)
+    fetch('/api/user/signup', requestOptions)
       .then(response => response.json())
       .then(data => console.log(data))
       .catch(error => console.error(error));
@@ -108,13 +109,13 @@ export function BasicButtonsSignUp() {
 //how do i prop drill the value of the email from the signupcard component into the basicbuttons signup component
 export function BasicCard() {
   return (
-    <Card sx={{ minWidth: 600, minHeight: 350, backgroundColor: '#673ab7'}}>
+    <Card sx={{ minWidth: 600, minHeight: 350, backgroundColor: 'rgba(128, 128, 128, 0.8)'}}>
       <CardContent sx={{ marginTop: '20px' }}>
         <Typography variant="h5" component="div" sx={{fontSize: '32px', fontWeight: '700', color: 'white', fontFamily: 'Arial'}}>
-          Welcome, traveler!
+          Animetopia
         </Typography>
         <Typography sx={{ fontSize: 14, marginBottom: '15px', color: 'white', marginTop: '5px', fontFamily: 'Arial'}} color="text.secondary">
-          To our community of passionate, curious engineers
+          To our community of passionate, curious anime watchers
         </Typography>
         {/* <Typography variant="body2">
           well meaning and kindly.

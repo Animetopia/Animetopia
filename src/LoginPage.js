@@ -1,4 +1,4 @@
-// import './LoginPage.css';
+import React from 'react'
 import { BasicButtons, BasicTextFields, BasicCard, SignUpCard} from './LoginUI.js';
 
 const LoginPage = (props) => {
