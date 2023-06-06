@@ -13,4 +13,4 @@ router.post('/login', usersController.login,  (req, res) => {
     return res.status(200).json(res.locals.currUser);
   });
 
-module.exports = userRouter
+module.exports = router

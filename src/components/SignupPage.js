@@ -25,12 +25,13 @@ const SignupPage = (props) => {
   }
 
   const handleSubmit = () => {
+    console.log("signupForm: ", signupForm)
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(signupForm)
     };
-    fetch('/api/user/signup', requestOptions)
+    fetch('/user/signup', requestOptions)
       .then(response => response.json())
       .then(data => {
         console.log(data);

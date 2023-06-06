@@ -1,4 +1,4 @@
-const db = require("../models/poolsModel");
+const db = require("../models/animeModels");
 
 const usersController = {};
 

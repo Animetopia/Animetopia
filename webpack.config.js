@@ -29,7 +29,7 @@ module.exports = (env) => {
                 target: 'http://localhost:3000/',
                 secure: false,
                 },
-            '/api': {
+            '/user': {
                 target: 'http://localhost:3000/',
                 secure: false,
                 },
