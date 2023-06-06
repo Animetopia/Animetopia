@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Card, Typography, CardContent, Stack, Button } from '@mui/material';
-import BasicTextFields from './BasicTextFields';
+import { Card, Typography, CardContent, Stack, Button, Box, TextField } from '@mui/material';
 
 const SignupPage = (props) => {
 
@@ -50,9 +49,57 @@ const SignupPage = (props) => {
           <Typography sx={{ fontSize: 14, marginBottom: '15px', color: 'white', marginTop: '5px', fontFamily: 'Arial'}} color="text.secondary">
             An Anime and Manga-based Community
           </Typography>
-          <BasicTextFields label="Username:" onChange={(e) => updateForm({username: e.target.value})}/>
-          <BasicTextFields label="Password:" onChange={(e) => updateForm({password: e.target.value})}/>
-          <BasicTextFields label="Email:" onChange={(e) => updateForm({email: e.target.value})}/>
+          <Box
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1.5, width: '40ch'},
+            }}
+            noValidate
+            autoComplete="off"
+          >
+          <TextField 
+            id="filled-basic" 
+            label="Username:" 
+            value={signupForm.username} 
+            onChange={(e) => updateForm({username: e.target.value})}
+            variant="filled" 
+            InputLabelProps={{style: {color: 'white'}}} 
+            inputProps={{style: { color: 'white' }}}/>
+          </Box>
+          <Box
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1.5, width: '40ch'},
+            }}
+            noValidate
+            autoComplete="off"
+          >
+          <TextField 
+            id="filled-basic" 
+            label="Password:" 
+            value={signupForm.password} 
+            onChange={(e) => updateForm({password: e.target.value})}
+            variant="filled" 
+            InputLabelProps={{style: {color: 'white'}}} 
+            inputProps={{style: { color: 'white' }}}/>
+          </Box>
+          <Box
+            component="form"
+            sx={{
+              '& > :not(style)': { m: 1.5, width: '40ch'},
+            }}
+            noValidate
+            autoComplete="off"
+          >
+          <TextField 
+            id="filled-basic" 
+            label="Email:" 
+            value={signupForm.email} 
+            onChange={(e) => updateForm({email: e.target.value})}
+            variant="filled" 
+            InputLabelProps={{style: {color: 'white'}}} 
+            inputProps={{style: { color: 'white' }}}/>
+          </Box>
           <div className = "buttonContainer" style={{ marginTop: '20px' }}>
             <Stack spacing={5} direction="row">
               <Button variant="contained" onClick = {handleSubmit}>Submit</Button>
