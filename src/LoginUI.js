@@ -36,12 +36,7 @@ export function BasicTextFields(props) {
       noValidate
       autoComplete="off"
     >
-      {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
-      {/* <div className="textFieldContainer" style={{ display: 'flex' }}> */}
-        {/* <TextField id="filled-basic" label = "Enter password" variant="filled" /> */}
-      {/* </div> */}
       <TextField id="filled-basic" label={props.label} value={userText} onChange={handleChange} variant="filled" InputLabelProps={{style: {color: 'white'}}} inputProps={{style: { color: 'white' }}}/>
-      {/* <TextField id="standard-basic" label="Standard" variant="standard" /> */}
     </Box>
   );
 }
@@ -69,11 +64,6 @@ export function BasicButtons(){
 }
   function directSignUp(){
     navigate("/signup");
-  // const navigate = useNavigate();
-  // const handleLoginClick = () => {
-  //   // Redirect to a new page
-  //   navigate('/dashboard');
-  // };
   return (
     <div className = "buttonContainer" style={{ marginTop: '20px' }}>
       <Stack spacing={5} direction="row">
