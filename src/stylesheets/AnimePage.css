@@ -1,0 +1,14 @@
+.animePage-Container{
+    width: '1700vw';
+    height: '1700vh';
+    background-color: 'yellow';
+}
+
+.animePageCard {
+	width: '1200vw';
+	height: '1200vh';
+	margin: 10%;
+	transform-style: preserve-3d;
+	transition: all .8s linear;
+	box-shadow: 5px 5px 15px rgba(0,0,0, .3);
+  }

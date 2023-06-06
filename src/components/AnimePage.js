@@ -9,7 +9,7 @@ const AnimePage = (props)=>{
     console.log('animeData: ', animeData)
     return (
         <div className="animePage-Container">
-          <div className="animeCard" style = {{transform: 'none'}}>
+          <div className="animePageCard" style = {{transform: 'none'}}>
             <h1>{animeData.data.title}</h1>
             <div className="front face">
               <img src={animeData.data.images.jpg.image_url}/>
