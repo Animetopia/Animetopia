@@ -78,7 +78,7 @@ const HomePage = () => {
           score={anime.score}
           />)
       }))
-      : <p>Loading...</p>
+      : <img src="https://media.tenor.com/kaRCm9ELxKgAAAAC/menhera-chan-chibi.gif"/>
     }
     </div>
   )

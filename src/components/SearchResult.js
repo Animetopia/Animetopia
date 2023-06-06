@@ -12,7 +12,7 @@ const SearchResult = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    navigate('/');
+    navigate('/home');
   }
 
   return (
