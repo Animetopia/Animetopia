@@ -1,10 +1,14 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
 .buttonContainer {
     display: flex;
     justify-content: center;
     align-items: center;
   }
   body {
-    background-image: url('https://images3.alphacoders.com/131/1310704.png');
+    background-image: url("../assets/spiritedAway.jpg");
     background-size: cover; /* scales the image to cover the entire background */
     background-repeat: no-repeat;
     height:100%;

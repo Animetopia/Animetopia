@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+* {
+  font-family: 'Quicksand', sans-serif;
+}
 
 .animeCard-container {
 	position: relative;
@@ -44,7 +46,6 @@
   }
   
   h1, p {
-	font-family: 'Source Sans Pro', sans-serif;
 	letter-spacing: 1px;
 	font-weight: bold;
 	color: #3166da;

@@ -1,3 +1,7 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
 .loginPage-container {
   display: flex;
   align-items: center;
