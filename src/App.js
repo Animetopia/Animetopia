@@ -9,7 +9,6 @@ import ProfilePage from "./components/ProfilePage";
 
 function App() {
   const [userId, setUserId] = useState("");
-
   return (
     <Router>
       <div className="App">

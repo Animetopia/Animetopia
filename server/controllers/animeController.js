@@ -77,30 +77,30 @@ animeController.deleteFavAnime = (req, res, next) => {
 };
 
 animeController.checkLiked = (req, res, next) => {
-  const { userId, malId } = req.body;
-
-  const queryString = `SELECT * from favorite_details WHERE mal_id=$1 AND user_id=$2`;
-  const values = [malId, userId];
-
-  db.query(queryString, values)
-    .then((results) => {
-      if (results.rows.length[0]) {
-        console.log("The entry exists in favorite_details: ", results.rows[0]);
-        res.locals.isLiked = true;
-      } else {
-        console.log("The entry does not exist in favorite_details");
-        res.locals.isLiked = false;
-      }
-      // return next middleware
-      return next();
-    })
-    // error catching
-    .catch((err) =>
-      next({
-        log: "Error in checking the existence of an entry in the favorite_details table",
-        message: { err },
-      })
-    );
-};
+    const { userId, malId } = req.body
+    
+    const queryString = `SELECT * from favorite_details WHERE mal_id=$1 AND user_id=$2`;
+    const values = [malId, userId]
+    
+    db.query(queryString, values)
+        .then(results => {
+            console.log("results: ", results)
+            if (results.rows.length > 0) {
+                console.log('The entry exists in favorite_details: ', results.rows[0]);
+                res.locals.isLiked = true;
+            } else {
+                console.log('The entry does not exist in favorite_details');
+                res.locals.isLiked = false;
+            }
+            // return next middleware
+            return next();
+        })
+        // error catching
+        .catch((err) => {
+            console.error('Error in checking the existence of an entry in the favorite_details table:', err);
+            next({log: 'Error in checking the existence of an entry in the favorite_details table',
+            message: {err},
+        })})
+}
 
 module.exports = animeController;

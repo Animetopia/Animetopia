@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "../stylesheets/loginPage.css";
 import { useNavigate } from "react-router-dom";
 import { Card, Typography, CardContent, Stack, Button, Box, TextField } from '@mui/material';
 
@@ -26,9 +27,15 @@ const LoginPage = (props) => {
         body: JSON.stringify(loginForm)
       };
       fetch('/user/login', requestOptions)
-        .then(response => response.json())
+        .then(response => {
+          if (response.status === 406) {
+            setForm({username: "", password: ""});
+            alert("Incorrect username or password.");
+          }
+          return response.json()})
         .then(data => {
           console.log(data)
+          props.setUserId(data.id);
           setForm({username: "", password: ""});
           navigate("/home"); 
         })
@@ -40,6 +47,7 @@ const LoginPage = (props) => {
   }
 
   return (
+    <div className="loginPage-container">
     <Card sx={{ minWidth: 600, minHeight: 350, backgroundColor: 'rgba(128, 128, 128, 0.8)'}}>
       <CardContent sx={{ marginTop: '20px' }}>
         <Typography variant="h5" component="div" sx={{fontSize: '32px', fontWeight: '700', color: 'white', fontFamily: 'Arial'}}>
@@ -90,6 +98,7 @@ const LoginPage = (props) => {
         </div>
       </CardContent>
     </Card>
+    </div>
   )
 }
 

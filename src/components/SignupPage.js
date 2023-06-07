@@ -7,7 +7,8 @@ const SignupPage = (props) => {
   const [signupForm, setForm] = useState({
       username: "",
       password: "",
-      email: ""
+      email: "",
+      avatar_url: "https://pic.onlinewebfonts.com/svg/img_568656.png"
   });
 
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ const SignupPage = (props) => {
       .then(response => response.json())
       .then(data => {
         console.log(data);
+        props.setUserId(data.id);
         setForm({username: "", password: "", email: ""});
         navigate("/home");
       })

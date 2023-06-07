@@ -11,7 +11,7 @@ router.delete('/deleteFavAnime', animeController.deleteFavAnime, (req,res) => {
     return res.status(200).json(res.locals.seasonalAnime)
 })
 
-router.get("/getLiked", animeController.checkLiked, (req,res) => {
+router.post("/getLiked", animeController.checkLiked, (req,res) => {
     return res.status(200).json(res.locals.isLiked)
 })
 
