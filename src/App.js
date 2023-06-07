@@ -6,6 +6,7 @@ import HomePage from "./components/HomePage";
 import SearchResult from "./components/SearchResult";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProfilePage from "./components/ProfilePage";
+import AnimePage from "./components/AnimePage";
 
 function App() {
   const [userId, setUserId] = useState("");
@@ -20,6 +21,7 @@ function App() {
           />
           <Route path="/home" element={<HomePage />} />
           <Route path="/search-results" element={<SearchResult />} />
+          <Route path="/animePage" element={<AnimePage />} />
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </div>

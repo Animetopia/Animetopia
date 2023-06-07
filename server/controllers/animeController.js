@@ -77,6 +77,7 @@ animeController.deleteFavAnime = (req, res, next) => {
 };
 
 animeController.checkLiked = (req, res, next) => {
+    console.log('inside check liked')
     const { userId, malId } = req.body
     
     const queryString = `SELECT * from favorite_details WHERE mal_id=$1 AND user_id=$2`;
@@ -84,7 +85,6 @@ animeController.checkLiked = (req, res, next) => {
     
     db.query(queryString, values)
         .then(results => {
-            console.log("results: ", results)
             if (results.rows.length > 0) {
                 console.log('The entry exists in favorite_details: ', results.rows[0]);
                 res.locals.isLiked = true;
