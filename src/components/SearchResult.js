@@ -7,6 +7,7 @@ import '../stylesheets/SearchResult.css';
 const SearchResult = () => {
   const location = useLocation();
   const searchResult = location.state?.searchResult;
+  const userId = location.state?.userId
 
   const navigate = useNavigate();
 
@@ -26,6 +27,8 @@ const SearchResult = () => {
           image={anime.images.jpg.image_url}
           title={anime.title}
           score={anime.score}
+          id={anime.mal_id}
+          userId={userId}
           />)
       }))
       : <p>Loading...</p>

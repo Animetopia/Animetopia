@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap');
-
+* {
+	font-family: 'Quicksand', sans-serif;
+  }
+  
 .animeCard-container {
 	position: relative;
 	margin: 10px 10px;
@@ -50,8 +52,8 @@
   }
   
   h1 {
-	font-size: 1em;
-	padding-top: 15px;
+	font-size: 0.8em;
+	padding-top: 2px;
   }
   
 .score-bar {
@@ -59,7 +61,12 @@
 	color: white;
     background-color: rgb(69, 116, 211);
 	text-transform: uppercase;
-	font-size: 1em;
+	font-size: 0.7em;
 	width: auto;
 	border-radius: 2px;
   }
+
+.like-btn {
+	background-color: white;
+	height: 40px;
+}
