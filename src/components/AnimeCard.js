@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../stylesheets/AnimeCard.css';
 import { useNavigate } from "react-router-dom";
-import { HeartOutline } from 'react-ionicons';
-import { HeartCircleOutline } from 'react-ionicons';
+import { HeartOutline, HeartCircleOutline } from 'react-ionicons';
 
 const AnimeCard = (props) => {
 
@@ -22,7 +21,7 @@ const AnimeCard = (props) => {
             `https://api.jikan.moe/v4/anime/${props.id}/full`
         );
         const data = await response.json();
-        navigate("/animePage", { state: { data: data }})
+        navigate("/animePage", { state: { data: data, userId: props.userId }});
       } catch (err) {
         console.log("err in fetching anime: ", err)
       }
@@ -74,7 +73,7 @@ const AnimeCard = (props) => {
           body: JSON.stringify({userId: props.userId, malId: props.id})
         };
         const response = await fetch('/anime/addFavAnime', requestOptions);
-        console.log("response: ", response)
+        // console.log("response: ", response)
         if (response) setLiked(true);
       } catch (err) {
         console.log("Err in posting new liked anime: ", err);
