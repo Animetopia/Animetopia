@@ -65,37 +65,43 @@ usersController.login = (req, res, next) => {
     .catch((err) => {
       return next(err);
     });
+};
 
-  usersController.checkDescription = (req, res, next) => {
-    const { username } = req.body;
-    const queryString =
-      "SELECT user_description FROM public.users WHERE username = $1";
-    const values = [username];
-    db.query(queryString, values)
-      .then((results) => {
-        if (results.rows.length > 0) {
-          res.locals.user_description = results.rows[0].user_description;
-        } else {
-          res.locals.user_description = null;
-        }
-        next();
-      })
-      .catch((error) => {
-        next(error);
-      });
-  };
-
-  usersController.saveDescription = (req, res, next) => {
-    const { description } = req.body;
-    const queryString = "INSERT INTO users(user_description) VALUES ($1) ";
-    const values = [description];
-    db.query(queryString, values).then((results) => {
+usersController.checkDescription = (req, res, next) => {
+  const { username } = req.body;
+  const queryString =
+    "SELECT user_description FROM public.users WHERE username = $1";
+  const values = [username];
+  db.query(queryString, values)
+    .then((results) => {
       if (results.rows.length > 0) {
-        console.log("The description was saved: ", results.rows[0]);
-        res.locals.savedMessage = results.rows[0];
+        res.locals.user_description = results.rows[0].user_description;
+      } else {
+        res.locals.user_description = null;
       }
+      return next();
+    })
+    .catch((error) => {
+      return next(error);
     });
-  };
+};
+
+usersController.saveDescription = (req, res, next) => {
+  const { description } = req.body;
+  const queryString = "INSERT INTO users(user_description) VALUES ($1) ";
+  const values = [description];
+  db.query(queryString, values).then((results) => {
+    if (results.rows.length > 0) {
+      console.log("The description was saved: ", results.rows[0]);
+      res.locals.savedMessage = results.rows[0];
+    }else {
+      res.locals.savedMessage = null
+    }
+    return next();
+  })
+  .catch((error) => {
+    return next(error);
+  });
 };
 
 module.exports = usersController;

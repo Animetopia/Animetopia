@@ -12,10 +12,10 @@ router.post("/login", usersController.login, (req, res) => {
   return res.status(200).json(res.locals.currUser);
 });
 
-router.post("/checkDesc", userController.checkDescription, (req, res) => {
+router.post("/checkDesc", usersController.checkDescription, (req, res) => {
   return res.status(200).json(res.locals.user_description);
 });
-router.post("/saveDesc", userController.saveDescription, (req, res) => {
+router.post("/saveDesc", usersController.saveDescription, (req, res) => {
   return res.status(200).json(res.locals.savedMessage);
 });
 module.exports = router;

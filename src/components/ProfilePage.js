@@ -6,9 +6,25 @@ const defaultProfilePic = "https://via.placeholder.com/150";
 
 const ProfilePage = (userId) => {
   const [description, setDescription] = useState("");
+  const [selectedFile, setSelectedFile] = useState();
+  const fileSelectedHandler = event => {
+    setSelectedFile(event.target.files[0]);
+  };
+  const fileUploadHandler = () => {
+    const fd = new FormData();
+    fd.append('image', selectedFile, selectedFile.name);
+    // axios.post('/api/upload', fd, {
+    //     onUploadProgress: progressEvent => {
+    //         console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
+    //     }
+    // })
+    // .then(res => {
+    //     console.log(res);
+    // });
+};
 
   useEffect(() => {
-    fetch("/users/checkDesc", {
+    fetch("/user/checkDesc", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +52,7 @@ const ProfilePage = (userId) => {
     //sends description back to db
     //
     console.log(description);
-    fetch("/users/checkDesc", {
+    fetch("/user/saveDesc", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,6 +70,7 @@ const ProfilePage = (userId) => {
   return (
     <div className="profile-container">
       <img src={defaultProfilePic} alt="Profile" className="profile-pic" />
+      <input type="file" onChange={fileSelectedHandler} />
       <textarea
         value={description}
         onChange={handleDescriptionChange}
