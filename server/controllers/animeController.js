@@ -97,10 +97,38 @@ animeController.checkLiked = (req, res, next) => {
         })
         // error catching
         .catch((err) => {
-            console.error('Error in checking the existence of an entry in the favorite_details table:', err);
             next({log: 'Error in checking the existence of an entry in the favorite_details table',
             message: {err},
         })})
 }
+animeController.getLiked = (req, res, next) => {
+  const { userId } = req.body
+  
+  // Change the query to select only mal_id
+  const queryString = `SELECT mal_id from favorite_details WHERE user_id=$1`;
+  const values = [userId]
+  
+  db.query(queryString, values)
+      .then(results => {
+          console.log("results: ", results)
+          if (results.rows.length > 0) {
+              // Map the rows to get an array of mal_id values
+              const malIds = results.rows.map(row => row.mal_id);
+              console.log('malId values for user: ', malIds);
+              res.locals.ID = malIds;
+          } else {
+              console.log('The user does not have any entries in favorite_details');
+              res.locals.ID = [];
+          }
+          // return next middleware
+          return next();
+      })
+      // error catching
+      .catch((err) => {
+          next({log: 'Error in checking the existence of an entry in the favorite_details table',
+          message: {err},
+      })})
+}
+
 
 module.exports = animeController;
