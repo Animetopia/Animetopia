@@ -14,14 +14,14 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          {/* <Route exact path="/" element={<LoginPage setUserId={setUserId}/>} /> */}
-          {/* <Route
+          <Route exact path="/" element={<LoginPage setUserId={setUserId}/>} />
+          <Route
             path="/signup"
             element={<SignupPage setUserId={setUserId} />}
           />
           <Route path="/home" element={<HomePage />} />
-          <Route path="/search-results" element={<SearchResult />} /> */}
-          <Route path="/" element={<ProfilePage />} />
+          <Route path="/search-results" element={<SearchResult />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </div>
     </Router>
