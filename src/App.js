@@ -19,7 +19,7 @@ function App() {
             path="/signup"
             element={<SignupPage setUserId={setUserId} />}
           />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/home" element={<HomePage userId={userId}/>} />
           <Route path="/search-results" element={<SearchResult />} />
           <Route path="/animePage" element={<AnimePage />} />
           <Route path="/profile" element={<ProfilePage />} />
