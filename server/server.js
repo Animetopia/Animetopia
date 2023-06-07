@@ -5,12 +5,13 @@ const express = require('express');
 
 const PORT = 3000;
 
-const animeRouter = require("./routes/animeRouter.js")
+const animeRouter = require('./routes/animeRouter')
 const userRouter = require('./routes/userRouter')
 
 // using express
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // app.use(cookieParser());
 
 // serving static files
