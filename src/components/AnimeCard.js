@@ -38,11 +38,10 @@ const AnimeCard = (props) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({userId: props.userId, malId: props.id})
       };
-      console.log({userId: props.userId, malId: props.id})
       const response = await fetch('/anime/getLiked', requestOptions);
-      console.log("response: ", response)
+      // console.log("response: ", response)
       const data = await response.json();
-      console.log("data from isLiked: ", data)
+      // console.log("data from isLiked: ", data)
       if (data === true) setLiked(true);
       else setLiked(false);
     } catch (err) {
@@ -94,7 +93,7 @@ const AnimeCard = (props) => {
           {liked ? (<HeartCircleOutline color={'#e8c721'} />) : (<HeartOutline />)}
         </button>
         <h1 onClick = {cardClick} style = {{cursor: 'pointer'}}>{props.title}</h1>
-        <div className="score-bar">{`Score: ${props.score}`}</div>
+        <div className="score-show">{`Score: ${props.score}`}</div>
       </div>
      </div>
     </div>

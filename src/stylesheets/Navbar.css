@@ -1,0 +1,33 @@
+.Navbar {
+    box-sizing: border-box;
+    margin: 0;
+    background: #02122e;
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .Navbar a {
+    font-weight: 900;
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .Navbar a:hover {
+    color: #3158ce;
+  }
+  .Navbar a.Navbar-active {
+    color: white;
+  }
+
+  .Navbar h1{
+	letter-spacing: 3px;
+	text-transform: capitalize;
+    -webkit-margin-before:0;
+    -webkit-margin-after:0;
+	color:#fff;
+	
+  }

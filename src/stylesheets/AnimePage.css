@@ -2,18 +2,113 @@
     font-family: 'Quicksand', sans-serif;
   }
   
-  .animePage-Container {
-    width: 100%;
-    height: 100%;
-    background: rgba(206, 194, 181, 0.5);
-    border-radius: 1rem;
-    overflow: scroll;
-  }
+.animePage-Container {
+  width: 100%;
+  height: 100%;
+  background: rgba(206, 194, 181, 0.5);
+  border-radius: 1rem;
+  overflow: scroll;
+}
+
+.animeContent-Container {
+  padding: 4rem;
+}
+#root {
+  width: 100vw;
+  height:100vh;
+}
+
+.fancy {
+  --b: 6px;   /* control the border thickness */
+  --w: 80px;  /* control the width of the line*/
+  --g: 15px;  /* control the gap */
+  --c: #0B486B;
   
-  .animeContent-Container {
-    padding: 4rem;
+  width: fit-content;
+  padding: 0 1em;
+  line-height: 1.6em;
+  border: 1px solid;
+  color: #fff;
+  background: 
+    conic-gradient(from   45deg at left ,var(--c) 25%,#0000 0) 0,
+    conic-gradient(from -135deg at right,var(--c) 25%,#0000 0) 100%;
+  background-size: 51% 100%;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  border-image: 
+      linear-gradient(
+        #0000      calc(50% - var(--b)/2),
+        var(--c) 0 calc(50% + var(--b)/2),
+        #0000    0) 
+    1/0 var(--w)/calc(var(--w) + var(--g));
+  margin-inline: auto;
+}
+
+.stats{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.rank-bar {
+  padding: 3px 5px;
+  color: white;
+  background-color: rgb(224, 106, 32);
+  text-transform: uppercase;
+  font-size: 1em;
+  width: auto;
+  border-radius: 2px;
+  width: 100px;
+  margin: 5px;
   }
-  #root {
-    width: 100vw;
-    height:100vh;
+
+.score-bar {
+  padding: 3px 5px;
+  color: white;
+  background-color: rgb(69, 116, 211);
+  text-transform: uppercase;
+  font-size: 1em;
+  width: auto;
+  border-radius: 2px;
+  width: 100px;
+  margin: 5px;
   }
+
+.scoreby-bar {
+  padding: 3px 5px;
+  color: white;
+  background-color: rgb(33, 161, 104);
+  text-transform: uppercase;
+  font-size: 1em;
+  width: auto;
+  border-radius: 2px;
+  width: 170px;
+  margin: 5px;
+  }
+
+.synopsis {
+  --b: 4px;   /* control the border thickness */
+  --w: 50px;  /* control the width of the line*/
+  --g: 40px;  /* control the gap */
+  --c: #C44D58;
+  
+  width: fit-content;
+  padding: 0 1em;
+  line-height: 1.6em;
+  border: 1px solid;
+  color: #fff;
+  background: 
+    conic-gradient(from   45deg at left ,var(--c) 25%,#0000 0) 0,
+    conic-gradient(from -135deg at right,var(--c) 25%,#0000 0) 100%;
+  background-size: 51% 100%;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+  border-image: 
+      linear-gradient(
+        #0000      calc(50% - var(--b)/2),
+        var(--c) 0 calc(50% + var(--b)/2),
+        #0000    0) 
+    1/0 var(--w)/calc(var(--w) + var(--g));
+  margin-inline: auto;
+}

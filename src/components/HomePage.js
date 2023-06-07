@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AnimeCard from './AnimeCard';
+import Navbar from './Navbar';
 import '../stylesheets/HomePage.css';
 import { SearchOutline } from 'react-ionicons';
 
@@ -54,6 +55,7 @@ const HomePage = (props) => {
 
   return (
     <div className="big-container">
+      <Navbar />
       <div className="search-container" data-container>
         <form className="form">
           <input
@@ -66,24 +68,25 @@ const HomePage = (props) => {
             data-form-input
           />
           <button className="form__btn" data-form-button onClick={handleSearch}>
-          <SearchOutline />
+            <SearchOutline />
           </button>
         </form>
       </div>
       <div className="home-container">
-      {seasonalAnime.length !== 0 
-      ? (seasonalAnime.map(anime => {
-        return (<AnimeCard 
-          image={anime.images.jpg.image_url}
-          title={anime.title}
-          score={anime.score}
-          id={anime.mal_id}
-          userId={props.userId}
-          />)
-      }))
-      : <img src="https://media.tenor.com/kaRCm9ELxKgAAAAC/menhera-chan-chibi.gif"/>
-    }
-    </div>
+        <h1 className="seasonal-title">Top Seasonal Anime</h1>
+        {seasonalAnime.length !== 0 
+        ? (seasonalAnime.map(anime => {
+          return (<AnimeCard 
+            image={anime.images.jpg.image_url}
+            title={anime.title}
+            score={anime.score}
+            id={anime.mal_id}
+            userId={props.userId}
+            />)
+        }))
+        : <img src="https://media.tenor.com/kaRCm9ELxKgAAAAC/menhera-chan-chibi.gif"/>
+        }
+      </div>
     </div>
   )
 }

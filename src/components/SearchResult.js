@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AnimeCard from './AnimeCard';
+import Navbar from './Navbar';
 import { ArrowBackOutline } from 'react-ionicons';
 import '../stylesheets/SearchResult.css';
 
@@ -18,6 +19,7 @@ const SearchResult = () => {
 
   return (
     <div>
+      <Navbar />
       <button className="back-btn" data-form-button onClick={handleClick}>
         <ArrowBackOutline />
       </button>  
