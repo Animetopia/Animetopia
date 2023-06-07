@@ -1,77 +1,80 @@
 const db = require("../models/animeModels");
 
-const animeController = {}
+const animeController = {};
 
 animeController.addFavAnime = (req, res, next) => {
-    console.log('IN FAV ANIME');
-    const { userId, malId } = req.body
+  console.log("IN FAV ANIME");
+  const { userId, malId } = req.body;
 
-    const queryString = `INSERT INTO favorites (mal_id) VALUES ($1) RETURNING *`;
+  const queryString = `INSERT INTO favorites (mal_id) VALUES ($1) RETURNING *`;
 
-    const values = [malId];
+  const values = [malId];
 
-    //sends SQL query and values to be passed into SQL user table
-    db.query(queryString, values)
-        // promise chaining query -> results are the return value of SQL query string
-        .then(results => {
-            console.log('Here is the new Favorites: ', results.rows[0]);
-            // saving user to locals.newUser so we can output in user's route
-            res.locals.favorite = results.rows[0];
-            const queryString2 = 'INSERT INTO favorite_details (favorite_id, user_id, mal_id) VALUES($1,$2,$3) RETURNING *'
-            const values2 = [res.locals.favorite.id, userId, malId]
-            db.query(queryString2, values2)
-            // return next middleware
-            return next()
-        })
-        // error catching
-        .catch((err) => next({
-          log: 'Error in adding row to favorites table',
-          message: {err},
-        }));
-        
-        // we thing res.locals.favorites is going to be an object {id: foo, malId: bar} 
-        // => we can do res.locals.favorites.id to grab favorites id
-        //     "user_id" integer NOT NULL,
-        //     "favorite_id" integer NOT NULL
-    // const queryString2 = 'INSERT INTO favorite_details (favorite_id, user_id, mal_id) VALUES($1,$2,$3) RETURNING *'
-    // console.log("favorite id: ",res.locals.favorite.id)
-    // const values2 = [res.locals.favorite.id, userId, malId]
-    // await db.query(queryString2, values2)
-    //     // promise chaining query -> results are the return value of SQL query string
-    //     .then(results => {
-    //         console.log('Here is the new Favorites details: ', results.rows[0]);
-    //         // saving user to locals.newUser so we can output in user's route
-    //         // return next middleware
-    //         return next();
-    //     })
-    //     // error catching
-    //     .catch((err) => next({
-    //       log: 'Error in adding row to favorites_details table',
-    //       message: {err},
-    //     }));
-    
-}
+  //sends SQL query and values to be passed into SQL user table
+  db.query(queryString, values)
+    // promise chaining query -> results are the return value of SQL query string
+    .then((results) => {
+      console.log("Here is the new Favorites: ", results.rows[0]);
+      // saving user to locals.newUser so we can output in user's route
+      res.locals.favorite = results.rows[0];
+      const queryString2 =
+        "INSERT INTO favorite_details (favorite_id, user_id, mal_id) VALUES($1,$2,$3) RETURNING *";
+      const values2 = [res.locals.favorite.id, userId, malId];
+      db.query(queryString2, values2);
+      // return next middleware
+      return next();
+    })
+    // error catching
+    .catch((err) =>
+      next({
+        log: "Error in adding row to favorites table",
+        message: { err },
+      })
+    );
+
+  // we thing res.locals.favorites is going to be an object {id: foo, malId: bar}
+  // => we can do res.locals.favorites.id to grab favorites id
+  //     "user_id" integer NOT NULL,
+  //     "favorite_id" integer NOT NULL
+  // const queryString2 = 'INSERT INTO favorite_details (favorite_id, user_id, mal_id) VALUES($1,$2,$3) RETURNING *'
+  // console.log("favorite id: ",res.locals.favorite.id)
+  // const values2 = [res.locals.favorite.id, userId, malId]
+  // await db.query(queryString2, values2)
+  //     // promise chaining query -> results are the return value of SQL query string
+  //     .then(results => {
+  //         console.log('Here is the new Favorites details: ', results.rows[0]);
+  //         // saving user to locals.newUser so we can output in user's route
+  //         // return next middleware
+  //         return next();
+  //     })
+  //     // error catching
+  //     .catch((err) => next({
+  //       log: 'Error in adding row to favorites_details table',
+  //       message: {err},
+  //     }));
+};
 
 animeController.deleteFavAnime = (req, res, next) => {
-    const { userId, malId } = req.body
+  const { userId, malId } = req.body;
 
-    const queryString = `DELETE from favorite_details WHERE mal_id=$1 AND user_id=$2 RETURNING *`;
-    const values = [malId, userId]
-    db.query(queryString, values)
-        // promise chaining query -> results are the return value of SQL query string
-        .then(results => {
-            console.log('Deleted row from favorite_details: ', results.rows[0]);
-            // saving user to locals.newUser so we can output in user's route
-            // return next middleware
-            return next();
-        })
-        // error catching
-        .catch((err) => next({
-          log: 'Error in adding row to favorites_details table',
-          message: {err},
-        }));
-
-}
+  const queryString = `DELETE from favorite_details WHERE mal_id=$1 AND user_id=$2 RETURNING *`;
+  const values = [malId, userId];
+  db.query(queryString, values)
+    // promise chaining query -> results are the return value of SQL query string
+    .then((results) => {
+      console.log("Deleted row from favorite_details: ", results.rows[0]);
+      // saving user to locals.newUser so we can output in user's route
+      // return next middleware
+      return next();
+    })
+    // error catching
+    .catch((err) =>
+      next({
+        log: "Error in adding row to favorites_details table",
+        message: { err },
+      })
+    );
+};
 
 animeController.checkLiked = (req, res, next) => {
     const { userId, malId } = req.body
@@ -100,5 +103,4 @@ animeController.checkLiked = (req, res, next) => {
         })})
 }
 
-
-module.exports = animeController
+module.exports = animeController;
