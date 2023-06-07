@@ -105,6 +105,10 @@
   background-color: rgba(255, 255, 255, 0.409);
 }
 
+.like-button:focus {
+  outline: none;
+}
+
 .synopsis {
   --b: 4px;   /* control the border thickness */
   --w: 50px;  /* control the width of the line*/
