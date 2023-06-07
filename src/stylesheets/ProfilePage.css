@@ -1,7 +1,15 @@
+#profPhoto{
+  height: 200px;
+  width: 200px;
+}
+
 .profile-container {
   display: flex;
   flex-direction: column;
   align-items: start;
+}
+#file{
+  display: block;
 }
 
 .profile-pic {
@@ -29,4 +37,4 @@
 
 .save-button:hover {
   background-color: #45a049;
-}
+} 
