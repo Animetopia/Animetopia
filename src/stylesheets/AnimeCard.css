@@ -1,0 +1,74 @@
+* {
+	font-family: 'Quicksand', sans-serif;
+  }
+  
+.animeCard-container {
+	position: relative;
+	margin: 10px 10px;
+	width: 187.5px;
+	height: 250px;
+	z-index: 1;
+	float: left;
+	/* perspective: 1000px; */
+  }
+  
+  .animeCard-container img {
+	width: 100%;
+	height: 100%;
+  }
+  
+  .animeCard {
+	width: 100%;
+	height: 100%;
+	margin: 10%;
+	transform-style: preserve-3d;
+	transition: all .8s linear;
+	box-shadow: 5px 5px 15px rgba(0,0,0, .3);
+  }
+  .animeCard:hover {
+	transform: rotateY(180deg);
+	box-shadow: -5px 5px 15px rgba(0,0,0, .3);
+  }
+  .face {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	border-radius: 2px;
+  }
+  .back {
+	display: block;
+	transform: rotateY(180deg);
+	box-sizing: border-box;
+	padding: 10px;
+	text-align: center;
+	opacity: .8;
+	background-color: white;
+	border-radius: 2px;
+  }
+  
+  h1, p {
+	font-family: 'Rubik', sans-serif;
+	font-weight: bold;
+	color: #2055c8;
+  }
+  
+  h1 {
+	font-size: 0.8em;
+	padding-top: 2px;
+  }
+  
+.score-show {
+	padding: 3px 5px;
+	color: white;
+    background-color: rgb(69, 116, 211);
+	text-transform: uppercase;
+	font-size: 0.7em;
+	width: auto;
+	border-radius: 2px;
+  }
+
+.like-btn {
+	background-color: white;
+	height: 40px;
+}
