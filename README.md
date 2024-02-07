@@ -10,7 +10,7 @@ Welcome to Animetopia, your go-to application for exploring the vibrant world of
 
 ## Getting Started
 
-![Alt text](https://drive.google.com/uc?export=view&id=1csGvwNWNhnBvoMbrObITtNQHELQfFyHN "Optional Title")
+![Alt text](https://drive.google.com/uc?export=view&id=1csGvwNWNhnBvoMbrObITtNQHELQfFyHN "Animetopia")
 
 ### Prerequisites
 
@@ -50,6 +50,8 @@ This runs the app in development mode. Open [http://localhost:8080](http://local
 - **Searching for Anime:** Use the search feature to find specific anime titles. Just type in the anime name and hit search to explore.
 - **Creating a Profile:** Navigate to the sign-up page to create your profile. Fill in your details, and you're all set to join the Animetopia community.
 - **Logging In:** If you already have an account, simply log in to access your profile and personalized features.
+
+![Alt text](https://drive.google.com/uc?export=view&id=1eZ1ofDHdFEAgDCzp5eCdJTsYTTy-cjYo "Seasonal Anime Dashboard")
 
 ## Contributing
 
