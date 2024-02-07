@@ -1,7 +1,5 @@
 # Animetopia
 
-# Animetopia
-
 Welcome to Animetopia, your go-to application for exploring the vibrant world of anime! With Animetopia, you can dive into the latest seasonal anime, like your favorites, and create your own unique profile to share your anime passions with a community of like-minded enthusiasts.
 
 ## Features
