@@ -10,6 +10,8 @@ Welcome to Animetopia, your go-to application for exploring the vibrant world of
 
 ## Getting Started
 
+![Alt text](https://drive.google.com/uc?export=view&id=1csGvwNWNhnBvoMbrObITtNQHELQfFyHN "Optional Title")
+
 ### Prerequisites
 
 Before you begin, ensure you have the latest version of Node.js and npm installed on your machine. This project was booted with Create React App, so having Node.js is a must.
