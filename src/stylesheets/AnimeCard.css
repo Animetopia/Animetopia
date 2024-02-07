@@ -1,50 +1,68 @@
 * {
-	font-family: 'Quicksand', sans-serif;
+	/* font-family: 'Quicksand', sans-serif; */
+	font-family: 'Manrope', sans-serif;
   }
+
   
 .animeCard-container {
 	position: relative;
-	margin: 10px 10px;
+	margin: 20px;
 	width: 187.5px;
 	height: 250px;
 	z-index: 1;
 	float: left;
 	/* perspective: 1000px; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
   }
   
   .animeCard-container img {
 	width: 100%;
 	height: 100%;
+	border-radius: 20px;
   }
   
   .animeCard {
 	width: 100%;
 	height: 100%;
-	margin: 10%;
+	/* margin: 50% 30%; */
 	transform-style: preserve-3d;
 	transition: all .8s linear;
 	box-shadow: 5px 5px 15px rgba(0,0,0, .3);
+	flex-shrink: 0;
+	border-radius: 20px;
   }
-  .animeCard:hover {
+  /* .animeCard:hover {
 	transform: rotateY(180deg);
+	transition: transform 0.5s;
+	box-shadow: -5px 5px 15px rgba(0,0,0, .3);
+  } */
+  .animeCard-container:hover .animeCard {
+	transform: rotateY(180deg);
+	transition: transform 0.5s;
 	box-shadow: -5px 5px 15px rgba(0,0,0, .3);
   }
+  
+  
   .face {
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	backface-visibility: hidden;
-	border-radius: 2px;
+	border-radius: 20px;
   }
   .back {
 	display: block;
 	transform: rotateY(180deg);
+	transition: transform 0.25s;
 	box-sizing: border-box;
 	padding: 10px;
 	text-align: center;
 	opacity: .8;
 	background-color: white;
-	border-radius: 2px;
+	border-radius: 20px;
   }
   
   h1, p {
